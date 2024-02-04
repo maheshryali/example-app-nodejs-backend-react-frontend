@@ -4,6 +4,9 @@ pipeline {
         jdk 'jdk17'
         nodejs 'nodejsv12'
     }
+    environment {
+        SCANNER_HOME=tool 'sonar-scanner'
+    }
     triggers { pollSCM('* * * * *') }
     stages {
         stage('clone_the_code') {
