@@ -48,5 +48,19 @@ pipeline {
                 }
             }
         }
+        stage('Deploy_application_to_k8s') {
+            steps {
+                script {
+                    dir('kubernetes') {
+                        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                            sh """
+                            kubectl apply -f deployment.yaml
+                            kubectl apply -f service.yaml
+                            """
+                        }
+                    }
+                }
+            }
+        }
     }
 }
