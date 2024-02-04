@@ -40,6 +40,8 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'dockercred', toolName: 'docker') {
                         docker image build -t nodejs:${BUILD_ID} .
+                        docker tag nodejs:${BUILD_ID} maheshryali/nodejs:${BUILD_ID}
+                        docker image push maheshryali/nodejs:${BUILD_ID}
                     }
                 }
             }
