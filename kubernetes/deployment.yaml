@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-project-deployment
+  name: nodejs-deployment
 spec:
   minReadySeconds: 3
   replicas: 3
