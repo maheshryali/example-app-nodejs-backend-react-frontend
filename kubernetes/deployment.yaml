@@ -26,3 +26,5 @@ spec:
           ports:
             - containerPort: 3000
               protocol: TCP
+      imagePullSecrets:
+        - name: regcred        
