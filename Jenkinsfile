@@ -35,5 +35,14 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Docker_build_push') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'dockercred', toolName: 'docker') {
+                        docker image build -t nodejs:${BUILD_ID} .
+                    }
+                }
+            }
+        }
     }
 }
