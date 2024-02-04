@@ -23,5 +23,12 @@ pipeline {
                 }
             }
         }
+        stage('Quality_gate') {
+            steps {
+                script {
+                    WaitForQualityGate abortPipeline: false, credentialsId: 'this is for nodejsproject'
+                }
+            }
+        }
     }
 }
