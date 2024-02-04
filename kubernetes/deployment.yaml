@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: nodejsproject
-          image: nodejs:latest
+          image: maheshryali/nodejs:latest
           ports:
             - containerPort: 3000
               protocol: TCP
